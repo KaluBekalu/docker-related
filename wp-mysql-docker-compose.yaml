@@ -11,6 +11,8 @@ services:
       - WORDPRESS_DB_NAME=wp_db
       - WORDPRESS_DB_USER=root
       - WORDPRESS_DB_PASSWORD=pass1234
+    volumes:
+      - ./wp-content:/var/www/html
     networks:
       wp-network:
         ipv4_address: "10.44.44.40"
@@ -19,6 +21,8 @@ services:
     environment:
       - MYSQL_DATABASE=wp_db
       - MYSQL_ROOT_PASSWORD=pass1234
+    volumes:
+      - ./mysql:/var/lib/mysql
     networks:
       wp-network:
         ipv4_address: "10.44.44.20"
